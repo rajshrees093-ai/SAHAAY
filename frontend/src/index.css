@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand: #2563EB;
+  --color-brand-dark: #1D4ED8;
+}
+
+body {
+  top: 0 !important;
+}
+
+/* Hide Google Translate UI elements to maintain professional Gov aesthetic */
+.skiptranslate {
+  display: none !important;
+}
+
+#google_translate_element {
+  position: absolute !important;
+  opacity: 0 !important;
+  z-index: -100 !important;
+  pointer-events: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  overflow: hidden !important;
+}
+
+.VIpgJd-ZVi9od-ORHb-OEVmcd {
+  display: none !important;
+}
