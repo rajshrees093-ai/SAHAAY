@@ -1,73 +1,99 @@
-# SahaayAI - Demo Script & Q&A
-
-## 60–90 Second Opening Pitch
-"Good morning respected judges and everyone present here.
-
-Imagine a victim calling a helpline while experiencing fear, distress, or trauma. They may explain their complaint, but the severity of their emotional state may not always be visible from the words alone.
-
-Our solution, SahaayAI, is an AI-powered real-time Stress and Trauma Assessment Module for NHAA 14566 and its integrated portal. SahaayAI acts as an intelligent assistance layer between the victim's interaction and the authorized operator.
-
-When a victim communicates through voice or text, our system processes the interaction using Speech-to-Text, NLP, emotion analysis, and a risk assessment engine. It generates three key outputs: Stress Score, Trauma-Risk Indicators, and Urgency Level.
-
-Instead of allowing AI to make decisions on behalf of authorities, we use a Human-in-the-Loop approach. The AI provides explainable indicators to the operator, helping them identify cases that may require more sensitive handling or faster review.
-
-Our prototype demonstrates the complete journey: Victim Interaction → AI Analysis → Risk Assessment → Operator Dashboard → Case Prioritization.
-
-Most importantly, SahaayAI does not diagnose trauma or replace human judgment. It helps the human understand the situation better and respond more appropriately.
-
-SahaayAI — turning every interaction into an opportunity for more informed, sensitive and timely assistance."
+# SAHAAY (NHAA 14566) — Live Demo Script & Evaluator Q&A
 
 ---
 
-## Live Demo Flow
+## ⏱️ 60–90 Second Elevator Pitch
 
-1. **"Let's see how SahaayAI works with a fictional complaint."**
-   *Open victim interface.*
-2. **Enter:** *"I have been receiving threats repeatedly. I am very scared and I don't feel safe."*
-   *Click Analyze.*
-3. **"The interaction is first converted into structured text and passed through our NLP pipeline."**
-   *Show Processing animation.*
-4. *Dashboard appears.* **Point at Stress Score (82/100):**
-   *"The system identifies elevated distress-related indicators."*
-5. **Point at Risk (HIGH):**
-   *"Based on the combination of linguistic, emotional and contextual features, our prototype generates a high-risk indicator."*
-6. **Point at Urgency (CRITICAL):**
-   *"The most important part is that SahaayAI does not automatically take action. It provides an explanation and recommendation to the authorized operator."*
-7. **Show "Human Review Required"**
-   *"So instead of AI replacing the person handling the case, SahaayAI helps that person make a more informed and sensitive decision."*
-
----
-
-## Team Presentation Division (6 Members)
-- **Member 1 (45 sec):** Problem + Introduction
-- **Member 2 (45 sec):** Solution + Innovation
-- **Member 3 (60 sec):** AI/ML Architecture
-- **Member 4 (45 sec):** Voice/NLP pipeline
-- **Member 5 (90 sec):** Live Prototype Demo
-- **Member 6 (45 sec):** Security + Impact + Future Scope
-- **Team Lead (Closing):** *"SahaayAI is not about replacing the human behind the helpline. It is about giving that human better information at the moment it matters. Because when someone reaches out for help, the system should not only hear their complaint — it should help understand the urgency behind it."*
+> *"Good morning respected evaluators and jury members.*
+>
+> *When citizens reach out in acute distress, fear and trauma impair linear communication. Their statements may be fragmented, hesitant, or written in regional dialects, making it difficult for overloaded helpline operators to immediately identify escalating danger.*
+>
+> *Our solution is **SAHAAY**, an AI-assisted grievance intake and early-warning vulnerability assessment portal built for the **National Helpline Assessment Authority (NHAA 14566)**.*
+>
+> *SAHAAY acts as an intelligent decision-support layer between the citizen and the case officer:*
+> 1. *Citizens speak or type freely in their mother tongue—supporting 6 major Indian languages.*
+> 2. *Our pipeline extracts both linguistic cues and acoustic voice signals (panic tremors, pitch variance, speech cadence).*
+> 3. *It computes an explainable **Stress Vulnerability Index (SVI 0–100)** and charts longitudinal escalation trends.*
+>
+> *Crucially, **AI never makes unilateral punitive decisions**. Trained case officers retain full authority, using our streamlined 2-column triage workstation to verify signals, override scores with audit logs, schedule follow-ups, or trigger emergency dispatches.*
+>
+> *SAHAAY: A safer, calmer way to be heard."*
 
 ---
 
-## Anticipated Q&A
+## 🎬 Live Walkthrough Flow
 
-**Q1. "How is this different from sentiment analysis?"**
-**Answer:** "Sentiment analysis alone identifies positive or negative sentiment. SahaayAI combines emotional indicators with linguistic distress signals, incident context and urgency indicators to generate an operator-oriented risk assessment."
+### Step 1: Multi-Language & Citizen Experience (`http://localhost:5174/`)
+1. **Language Switching**:
+   - Show the language dropdown in the top navigation bar.
+   - Switch from **English** $\rightarrow$ **हिन्दी (Hindi)** $\rightarrow$ **मराठी (Marathi)**.
+   - Highlight that the UI and sample prompts update **instantly** without reloading the page.
 
-**Q2. "Can AI actually detect trauma?"**
-**Answer:** "We are not claiming that AI can clinically diagnose trauma. Our system identifies observable distress-related indicators and produces a risk signal. The final interpretation and action always remain with a trained human operator."
+2. **Multimodal Grievance Intake (`/complaint`)**:
+   - Click **"Speak or Submit Now"**.
+   - Show the glowing microphone with browser audio permission handling.
+   - Click **"Paste Sample Hindi Distress Text"** to demonstrate rapid intake.
+   - Check the **Consent Checkbox** under NHAA 14566 privacy protocols.
+   - Click **"Submit for Officer Triage"**.
 
-**Q3. "What if AI gives a wrong result?"**
-**Answer:** "That's why we use a Human-in-the-Loop architecture. AI output is advisory rather than an autonomous decision. We also display confidence and supporting indicators so the operator can verify the result."
+3. **256-Bit AES Encryption & Pseudonymous Docket**:
+   - Watch the multi-step intake animation: *Encrypting AES-256 $\rightarrow$ NLP extraction $\rightarrow$ SVI scoring*.
+   - Show the generated copyable Docket Number (e.g. `NHAA/2026/05/2854`).
+   - Click **"Track Grievance Status"** to view the 5-stage milestone stepper (`/track`).
 
-**Q4. "Where will you get training data?"**
-**Answer:** "For the prototype, we use publicly available emotion and distress-related datasets along with carefully designed synthetic domain-specific examples. For real deployment, domain-specific datasets would need to be collected under appropriate ethical, privacy and governmental protocols."
+---
 
-**Q5. "Why FastAPI?"**
-**Answer:** "Our AI pipeline is Python-based, so FastAPI gives us a lightweight way to expose the ML models as APIs and integrate them directly with our React frontend."
+### Step 2: Reactive Officer Triage Console (`http://localhost:5174/operator`)
+1. **Strict Role Separation**:
+   - Show that opening `/operator` requires official authentication (`officer@nhaa.gov.in`).
+   - Click **"Login with Demo SSO"** to enter the Officer Console.
 
-**Q6. "Why not just use ChatGPT?"**
-**Answer:** "A general-purpose LLM can assist with language understanding, but our system requires a controlled, explainable and domain-specific assessment pipeline. We therefore separate NLP, feature extraction and risk scoring rather than depending entirely on a general-purpose model."
+2. **Reactive Priority Queue (Left Column)**:
+   - Point to the top of the queue: the complaint filed by the citizen in Step 1 appears dynamically at the top as **`Pending Verification`**.
+   - Filter by risk levels (**CRITICAL**, **HIGH**, **MODERATE**, **LOW**) and view the risk distribution donut chart.
 
-**Q7. "Can this be integrated with 14566?"**
-**Answer:** "Our prototype is designed as an integration layer. A production implementation could consume authorized call transcripts or portal interactions through the appropriate NHAA infrastructure and return the assessment to the operator interface."
+3. **Active Case Dossier (Right Column)**:
+   - **SVI Stress Score**: Point to the glowing semi-circular gauge (**91/100 · 88% Confidence**).
+   - **Longitudinal Trend**: Inspect the 18-day escalation chart showing rising distress signals over time.
+   - **Multimodal Evidence**: Review the 3 categorized evidence cards:
+     - 📝 *Transcribed Statement*
+     - 🎙️ *Acoustic Speech Signals (+40dB variance, panic tremors)*
+     - ⚠️ *Environmental Risk Factors (isolated zone, unsafe return)*
+
+4. **Human-in-the-Loop Interventions**:
+   - Check the interactive verification pills (*Confirmed ✓*).
+   - Click **"Verify & Approve Assessment"** $\rightarrow$ shows instant toast notification that redressal has been initiated.
+   - Click **"Override Score"** $\rightarrow$ open the dark glass modal to adjust risk ratings with mandatory audit justification.
+   - Demonstrate **"Schedule Follow-up"** and **"Emergency Dispatch"** (routes to ERSS 112).
+
+---
+
+## 👥 Presentation Role Division (6 Team Members)
+
+| Speaker | Timing | Focus Area |
+|---|---|---|
+| **Member 1** | 45 sec | Problem Statement & Citizen Psychological Reality |
+| **Member 2** | 45 sec | SAHAAY Solution Architecture & Ethical Boundaries |
+| **Member 3** | 60 sec | Multimodal AI Pipeline (Text NLP + Voice Acoustics + SVI Scoring) |
+| **Member 4** | 45 sec | Security Architecture (256-Bit AES, Pseudonymization, Privacy) |
+| **Member 5** | 90 sec | Live Dual-Portal Demo (Citizen Intake $\rightarrow$ Reactive Officer Console) |
+| **Member 6** | 45 sec | Impact, Scalability for 14566, and Roadmap |
+
+---
+
+## ❓ Frequently Asked Questions (Jury Q&A)
+
+### Q1: How does SAHAAY differ from generic sentiment analysis?
+> **Answer:** Standard sentiment analysis only classifies words as positive, neutral, or negative. SAHAAY combines **linguistic distress semantics**, **voice acoustic markers** (pitch variance, jitter, panic tremors), **situational risk factors**, and **18-day longitudinal trends** to generate an operational Stress Vulnerability Index (SVI).
+
+### Q2: Does AI replace case officers or make legal determinations?
+> **Answer:** Absolutely not. SAHAAY is built on a strict **Human-in-the-Loop** model. AI scores are strictly advisory. Officers must individually verify signals, and any score override is logged in an immutable audit trail.
+
+### Q3: How is citizen privacy and confidentiality protected?
+> **Answer:** All statements and audio features are encrypted with **256-bit AES via Fernet encryption**. Complainants interact through **pseudonymous docket numbers**, ensuring personal identities remain isolated in a protected credential vault.
+
+### Q4: How does the system handle regional Indian languages?
+> **Answer:** SAHAAY features a native **6-language translation architecture** (English, Hindi, Marathi, Tamil, Bengali, Telugu) coupled with locale-aware Web Speech recognition (`hi-IN`, `mr-IN`, `ta-IN`, etc.) to transcribe regional dialects accurately.
+
+### Q5: What happens if audio quality is poor or background noise is high?
+> **Answer:** The pipeline calculates confidence scores for acoustic features. If audio quality falls below threshold, the system gracefully falls back to text NLP analysis without skewing the overall SVI score.

@@ -1,16 +1,81 @@
-# React + Vite
+# SAHAAY — Frontend Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Modern **React 18 + Vite** frontend implementing a **Dark Blue Glassmorphism Design System** for the SAHAAY (NHAA 14566) Grievance & Vulnerability Assessment Portal.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🎨 Design System & Styling
+- **Base Canvas**: Midnight Blue (`#070d1e` / `#050914`) with ambient luminous radial glows.
+- **Glassmorphism**: `backdrop-blur-xl`, `bg-slate-900/60`, `border-white/10`, and `shadow-2xl`.
+- **Luminous Highlights**: Soft purple/indigo accents (`#4F46E5` / `#6366F1`) and color-coded risk indicators.
+- **Icons**: Lucide React.
+- **Charts & Data Viz**: Responsive SVG Donut Charts, Semi-Circular Risk Gauges, and Neon Trendlines.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🌐 Multi-Language Architecture (`/src/context/LanguageContext.jsx`)
+Features instant multi-language switching supporting 6 primary Indian regional languages:
+- **English (`en`)**
+- **हिन्दी (`hi`)**
+- **मराठी (`mr`)**
+- **தமிழ் (`ta`)**
+- **বাংলা (`bn`)**
+- **తెలుగు (`te`)**
 
-## Expanding the Oxlint configuration
+### Capabilities:
+- Instant UI string translations without page reloads.
+- Dialect-aware Web Speech API speech-to-text binding (`recognition.lang = 'hi-IN'`, `'mr-IN'`, etc.).
+- Google Translate cookie synchronization for external elements.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+---
+
+## 📁 Directory Structure
+
+```
+frontend/
+├── src/
+│   ├── assets/               # Static images and branding assets
+│   ├── components/
+│   │   ├── layout/           # Sidebar, Header, OperatorLayout, Navbar
+│   │   └── ui/               # RiskBadge, KpiCard, DonutChart, RiskGauge, RiskTrendLine, OverrideModal
+│   ├── context/
+│   │   └── LanguageContext.jsx # Multi-language dictionary and provider
+│   ├── pages/
+│   │   ├── LandingPage.jsx          # Public hero, feature pillars, emergency callout
+│   │   ├── CitizenDashboard.jsx     # Citizen self-service portal
+│   │   ├── ComplaintInteraction.jsx # Voice & text multimodal intake
+│   │   ├── TrackStatus.jsx          # Milestone stepper status tracking
+│   │   ├── EmergencyContacts.jsx    # Emergency hotline directory (112, 1091, 14566)
+│   │   ├── LoginPage.jsx            # Tabbed Citizen / Official Login
+│   │   ├── SignupPage.jsx           # Citizen & Official registration
+│   │   ├── UserProfile.jsx          # Account settings & credentials
+│   │   ├── ProblemStatement.jsx     # Pitch presentation viewer
+│   │   └── operator/                # Officer Triage Subsystem
+│   │       ├── DashboardOverview.jsx # 2-column triage decision-support workstation
+│   │       ├── CaseQueue.jsx         # Case management table
+│   │       ├── AlertsView.jsx        # Real-time alert feed
+│   │       ├── FollowUpsView.jsx     # Citizen follow-up schedule
+│   │       ├── AnalyticsView.jsx     # Longitudinal stress analytics
+│   │       ├── ReportsView.jsx       # Exportable audit reports
+│   │       └── ResourcesView.jsx     # Emergency dispatch & referrals
+│   ├── App.jsx               # Routes, AuthContext, ProtectedRoute guards
+│   ├── index.css             # Tailwind v4 import & ambient utilities
+│   └── main.jsx              # React DOM entry point
+├── package.json
+└── vite.config.js
+```
+
+---
+
+## 🚀 Running the Frontend
+
+```bash
+# Install dependencies
+npm install
+
+# Start development server (Port 5174)
+npm run dev
+
+# Create production build
+npm run build
+```

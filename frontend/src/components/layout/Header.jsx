@@ -89,6 +89,7 @@ export const Header = ({ onMenuClick, onNewCaseClick }) => {
           >
             <option value="en" className="bg-slate-900 text-white">English (EN)</option>
             <option value="hi" className="bg-slate-900 text-white">हिन्दी (HI)</option>
+            <option value="hinglish" className="bg-slate-900 text-white">Hinglish (हिन्दी+EN)</option>
             <option value="mr" className="bg-slate-900 text-white">मराठी (MR)</option>
             <option value="ta" className="bg-slate-900 text-white">தமிழ் (TA)</option>
             <option value="bn" className="bg-slate-900 text-white">বাংলা (BN)</option>

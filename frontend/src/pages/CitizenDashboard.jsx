@@ -41,10 +41,13 @@ export const CitizenDashboard = () => {
         {/* Welcome Header */}
         <div className="bg-slate-900/60 backdrop-blur-xl border border-white/10 rounded-2xl p-6 lg:p-8 shadow-xl flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div className="space-y-1">
-            <span className="text-[10px] font-bold text-indigo-400 uppercase tracking-widest block">
-              {t('citizenPortal')}
-            </span>
-            <h1 className="text-2xl lg:text-3xl font-black text-white tracking-tight">
+            <div className="flex items-center gap-2">
+              <span className="text-xl font-black text-white tracking-tight">{t('brandName')}</span>
+              <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-indigo-500/10 text-indigo-300 border border-indigo-500/20">
+                {t('victimSubtitle')}
+              </span>
+            </div>
+            <h1 className="text-2xl lg:text-3xl font-black text-white tracking-tight pt-1">
               {t('welcome')}
             </h1>
             <p className="text-xs text-slate-300">

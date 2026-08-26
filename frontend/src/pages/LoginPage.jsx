@@ -12,11 +12,13 @@ import {
   Key
 } from 'lucide-react'
 import { AuthContext } from '../App'
+import { useLanguage } from '../context/LanguageContext'
 
 export const LoginPage = () => {
   const navigate = useNavigate()
   const location = useLocation()
   const [searchParams] = useSearchParams()
+  const { t } = useLanguage()
   const initialTab = searchParams.get('tab') || 'citizen'
   const [loginType, setLoginType] = useState(initialTab) // 'citizen' or 'official'
   const [email, setEmail] = useState(initialTab === 'official' ? 'officer@nhaa.gov.in' : 'citizen@demo.in')
@@ -54,20 +56,24 @@ export const LoginPage = () => {
         return
       }
       setUser({ name: 'Case Officer Sharma', role: 'operator', email })
-      navigate('/operator')
+      const redirectPath = location.state?.from?.pathname || '/operator'
+      navigate(redirectPath)
     } else {
       setUser({ name: 'Citizen Demo User', role: 'user', email })
-      navigate('/dashboard')
+      const redirectPath = location.state?.from?.pathname || '/complaint'
+      navigate(redirectPath)
     }
   }
 
   const handleQuickDemoSSO = () => {
     if (loginType === 'official') {
       setUser({ name: 'Case Officer Sharma', role: 'operator', email: 'officer@nhaa.gov.in' })
-      navigate('/operator')
+      const redirectPath = location.state?.from?.pathname || '/operator'
+      navigate(redirectPath)
     } else {
       setUser({ name: 'Citizen Demo User', role: 'user', email: 'citizen@demo.in' })
-      navigate('/dashboard')
+      const redirectPath = location.state?.from?.pathname || '/complaint'
+      navigate(redirectPath)
     }
   }
 
@@ -107,12 +113,18 @@ export const LoginPage = () => {
           <div className="w-12 h-12 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 mx-auto mb-3 shadow-inner">
             <ShieldCheck className="w-6 h-6" />
           </div>
-          <h2 className="text-xl font-black text-white tracking-tight">
+          <h1 className="text-2xl font-black text-white tracking-tight">
+            {t('brandName')}
+          </h1>
+          <p className="text-xs font-semibold text-slate-200 mt-1">
+            {t('subtitleShort')}
+          </p>
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-300 border border-indigo-500/20 text-[11px] font-medium mt-2">
+            <span>NHAA 14566 Integrated Portal · SIH 2026 Prototype</span>
+          </div>
+          <h2 className="text-sm font-bold text-slate-400 mt-3">
             {loginType === 'official' ? 'Official Case Officer Portal' : 'Citizen Grievance Login'}
           </h2>
-          <p className="text-xs text-slate-400 mt-1">
-            SAHAAY · NHAA 14566 · Department of Public Grievances
-          </p>
         </div>
 
         <div className="p-6 lg:p-8 space-y-4">

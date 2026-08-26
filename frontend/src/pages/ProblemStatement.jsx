@@ -13,7 +13,11 @@ import {
   ExternalLink
 } from 'lucide-react'
 
+import { useLanguage } from '../context/LanguageContext'
+
 export const ProblemStatement = () => {
+  const { t } = useLanguage()
+
   return (
     <div className="min-h-screen bg-[#070d1e] font-sans text-slate-100 flex flex-col animate-fade-in relative">
       {/* Header */}
@@ -23,7 +27,7 @@ export const ProblemStatement = () => {
           <span>Back to Home</span>
         </Link>
         <div className="font-bold text-xs text-slate-400 uppercase tracking-widest">
-          SAHAAY · NHAA 14566 Pitch Presentation
+          {t('portalFullName')} Pitch Presentation
         </div>
         <div className="w-8"></div>
       </div>
@@ -100,7 +104,7 @@ export const ProblemStatement = () => {
             <div className="bg-slate-900/60 backdrop-blur-xl rounded-2xl border border-white/10 p-6 space-y-3 text-xs shadow-xl">
               <h3 className="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-                The SAHAAY Solution Framework
+                The {t('brandName')} Solution Framework
               </h3>
               <p className="text-slate-300 leading-relaxed">
                 A consent-based, human-in-the-loop early-warning system combining multilingual text NLP, optional voice acoustic extraction, and longitudinal trend detection into an explainable <strong className="text-white">Stress Vulnerability Index (SVI)</strong>.

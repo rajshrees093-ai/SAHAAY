@@ -34,7 +34,9 @@ import {
   Globe,
   Phone,
   Search,
-  ExternalLink
+  ExternalLink,
+  Menu,
+  X
 } from 'lucide-react'
 
 export const AuthContext = createContext(null)
@@ -68,12 +70,12 @@ const PublicNavbar = ({ user, handleLogout }) => {
 
   return (
     <>
-      {/* Top Government Strip */}
+      {/* Top Utility Strip */}
       <div className="bg-[#050914] text-slate-400 text-[11px] py-1.5 px-4 lg:px-8 border-b border-white/5 flex justify-between items-center">
         <div className="container mx-auto flex justify-between max-w-7xl">
           <div className="flex items-center gap-2 font-semibold tracking-wider text-slate-300">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-            <span>{t('authority')}</span>
+            <span className="w-2 h-2 rounded-full bg-indigo-400 animate-pulse"></span>
+            <span>{t('topStripText')}</span>
           </div>
 
           <div className="flex items-center gap-4 text-[11px]">
@@ -92,6 +94,7 @@ const PublicNavbar = ({ user, handleLogout }) => {
               >
                 <option value="en" className="bg-slate-900 text-white">English (EN)</option>
                 <option value="hi" className="bg-slate-900 text-white">हिन्दी (HI)</option>
+                <option value="hinglish" className="bg-slate-900 text-white">Hinglish (हिन्दी+EN)</option>
                 <option value="mr" className="bg-slate-900 text-white">मराठी (MR)</option>
                 <option value="ta" className="bg-slate-900 text-white">தமிழ் (TA)</option>
                 <option value="bn" className="bg-slate-900 text-white">বাংলা (BN)</option>
@@ -110,12 +113,7 @@ const PublicNavbar = ({ user, handleLogout }) => {
               <ShieldAlert className="w-5 h-5" />
             </div>
             <div className="flex flex-col">
-              <div className="flex items-center gap-1.5">
-                <span className="text-lg font-black tracking-tight text-white">SAHAAY</span>
-                <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
-                  14566
-                </span>
-              </div>
+              <span className="text-xl font-black tracking-tight text-white">{t('brandName')}</span>
               <span className="text-[10px] text-slate-400 font-medium tracking-tight">
                 {t('tagline')}
               </span>
@@ -123,25 +121,47 @@ const PublicNavbar = ({ user, handleLogout }) => {
           </Link>
 
           {/* Desktop Navigation Links */}
-          <div className="hidden lg:flex items-center gap-5 text-xs font-semibold">
-            <Link to="/" className="text-slate-300 hover:text-white transition-colors">
-              {t('home')}
-            </Link>
-            <Link to="/complaint" className="text-indigo-300 hover:text-indigo-200 transition-colors">
-              {t('fileGrievance')}
-            </Link>
-            <Link to="/track" className="text-slate-300 hover:text-white transition-colors">
-              {t('trackStatus')}
-            </Link>
-            <Link to="/emergency" className="text-rose-400 hover:text-rose-300 transition-colors">
-              {t('emergency')}
-            </Link>
-            <Link
-              to="/problem"
-              className="text-slate-300 hover:text-white bg-white/5 hover:bg-white/10 px-3 py-1.5 rounded-xl transition-colors border border-white/10"
-            >
-              {t('pitchDeck')}
-            </Link>
+          <div className="hidden lg:flex items-center gap-6 text-xs font-semibold">
+            {location.pathname === '/' ? (
+              <>
+                <a href="#what-sahaay-does" className="text-slate-300 hover:text-white transition-colors">
+                  {t('navAbout')}
+                </a>
+                <a href="#how-it-works" className="text-slate-300 hover:text-white transition-colors">
+                  {t('navHowItWorks')}
+                </a>
+                <Link to="/complaint" className="text-slate-300 hover:text-white transition-colors">
+                  {t('navForVictims')}
+                </Link>
+                <Link to="/login?tab=official" className="text-slate-300 hover:text-white transition-colors">
+                  {t('navForOperators')}
+                </Link>
+                <Link to="/emergency" className="text-slate-300 hover:text-white transition-colors">
+                  {t('navResources')}
+                </Link>
+              </>
+            ) : (
+              <>
+                <Link to="/" className="text-slate-300 hover:text-white transition-colors">
+                  {t('home')}
+                </Link>
+                <Link to="/complaint" className="text-indigo-300 hover:text-indigo-200 transition-colors">
+                  {t('fileGrievance')}
+                </Link>
+                <Link to="/track" className="text-slate-300 hover:text-white transition-colors">
+                  {t('trackStatus')}
+                </Link>
+                <Link to="/emergency" className="text-rose-400 hover:text-rose-300 transition-colors">
+                  {t('emergency')}
+                </Link>
+                <Link
+                  to="/problem"
+                  className="text-slate-300 hover:text-white bg-white/5 hover:bg-white/10 px-3 py-1.5 rounded-xl transition-colors border border-white/10"
+                >
+                  {t('pitchDeck')}
+                </Link>
+              </>
+            )}
 
             {user?.role === 'user' && (
               <Link to="/dashboard" className="text-indigo-400 hover:text-indigo-300 transition-colors font-bold">
@@ -159,69 +179,58 @@ const PublicNavbar = ({ user, handleLogout }) => {
               </Link>
             )}
 
-            {!user ? (
-              <div className="flex items-center gap-2">
+            {/* Right side CTA Button & Auth */}
+            <div className="flex items-center gap-3 border-l border-white/10 pl-4">
+              <Link
+                to="/complaint"
+                className="bg-indigo-600 hover:bg-indigo-500 text-white font-extrabold px-4 py-2 rounded-xl shadow-[0_0_15px_rgba(99,102,241,0.4)] transition-all hover:shadow-[0_0_20px_rgba(99,102,241,0.6)]"
+              >
+                {t('getSupport')}
+              </Link>
+
+              {!user ? (
                 <Link
                   to="/login?tab=citizen"
-                  className="text-slate-300 hover:text-white font-bold px-3 py-2 rounded-lg transition-colors"
+                  className="text-slate-300 hover:text-white font-bold px-2.5 py-1.5 rounded-lg text-xs transition-colors"
                 >
                   {t('citizenLogin')}
                 </Link>
-                <Link
-                  to="/signup"
-                  className="bg-indigo-600 hover:bg-indigo-500 text-white font-bold px-3.5 py-2 rounded-xl shadow-md transition-colors"
-                >
-                  {t('register')}
-                </Link>
-              </div>
-            ) : (
-              <div className="flex items-center gap-2 border-l border-white/10 pl-3">
-                <Link
-                  to="/profile"
-                  className="flex items-center gap-1.5 bg-white/5 hover:bg-white/10 px-2.5 py-1 rounded-full text-slate-300 border border-white/10 transition-colors text-[11px]"
-                >
-                  <UserIcon className="w-3.5 h-3.5 text-indigo-400" />
-                  <span>{user.name}</span>
-                </Link>
-                <button
-                  onClick={handleLogout}
-                  className="p-1 text-slate-400 hover:text-rose-400 hover:bg-rose-500/10 rounded-lg transition-colors"
-                  title={t('signOut')}
-                >
-                  <LogOut className="w-3.5 h-3.5" />
-                </button>
-              </div>
-            )}
+              ) : (
+                <div className="flex items-center gap-2">
+                  <Link
+                    to="/profile"
+                    className="flex items-center gap-1.5 bg-white/5 hover:bg-white/10 px-2.5 py-1 rounded-full text-slate-300 border border-white/10 transition-colors text-[11px]"
+                  >
+                    <UserIcon className="w-3.5 h-3.5 text-indigo-400" />
+                    <span>{user.name}</span>
+                  </Link>
+                  <button
+                    onClick={handleLogout}
+                    className="p-1 text-slate-400 hover:text-rose-400 hover:bg-rose-500/10 rounded-lg transition-colors"
+                    title={t('signOut')}
+                  >
+                    <LogOut className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+              )}
+            </div>
           </div>
 
           {/* Mobile Right Controls */}
           <div className="flex lg:hidden items-center gap-2">
-            {!user ? (
-              <Link
-                to="/login?tab=citizen"
-                className="bg-indigo-600 hover:bg-indigo-500 text-white font-bold px-3 py-1.5 rounded-xl text-xs shadow-md transition-all"
-              >
-                <span>Login</span>
-              </Link>
-            ) : (
-              <Link
-                to="/profile"
-                className="bg-white/5 text-slate-200 px-2.5 py-1.5 rounded-xl text-xs border border-white/10"
-              >
-                <span>{user.name.split(' ')[0]}</span>
-              </Link>
-            )}
+            <Link
+              to="/complaint"
+              className="bg-indigo-600 hover:bg-indigo-500 text-white font-bold px-3 py-1.5 rounded-xl text-xs shadow-md transition-all"
+            >
+              <span>{t('getSupport')}</span>
+            </Link>
+
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-xl text-slate-300 hover:text-white hover:bg-white/5 border border-white/10"
+              className="p-2 rounded-xl text-slate-400 hover:text-white hover:bg-white/5 transition-colors border border-white/5"
+              aria-label="Toggle Menu"
             >
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                {mobileMenuOpen ? (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                ) : (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                )}
-              </svg>
+              {mobileMenuOpen ? <X className="w-5 h-5 text-rose-400" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
         </div>
@@ -230,40 +239,40 @@ const PublicNavbar = ({ user, handleLogout }) => {
         {mobileMenuOpen && (
           <div className="lg:hidden border-t border-white/10 bg-[#070e20]/95 backdrop-blur-2xl px-4 py-4 space-y-3 animate-fade-in text-xs font-semibold">
             <div className="grid grid-cols-2 gap-2">
-              <Link
-                to="/"
+              <a
+                href="#what-sahaay-does"
                 onClick={() => setMobileMenuOpen(false)}
-                className="p-2.5 rounded-xl bg-white/5 text-slate-200 hover:bg-white/10"
+                className="p-2.5 rounded-xl bg-white/5 text-slate-200 hover:bg-white/10 text-center"
               >
-                Home
-              </Link>
+                {t('navAbout')}
+              </a>
+              <a
+                href="#how-it-works"
+                onClick={() => setMobileMenuOpen(false)}
+                className="p-2.5 rounded-xl bg-white/5 text-slate-200 hover:bg-white/10 text-center"
+              >
+                {t('navHowItWorks')}
+              </a>
               <Link
                 to="/complaint"
                 onClick={() => setMobileMenuOpen(false)}
-                className="p-2.5 rounded-xl bg-indigo-500/20 text-indigo-300 hover:bg-indigo-500/30"
+                className="p-2.5 rounded-xl bg-indigo-500/20 text-indigo-300 hover:bg-indigo-500/30 text-center"
               >
-                File Grievance
+                {t('navForVictims')}
               </Link>
               <Link
-                to="/track"
+                to="/login?tab=official"
                 onClick={() => setMobileMenuOpen(false)}
-                className="p-2.5 rounded-xl bg-white/5 text-slate-200 hover:bg-white/10"
+                className="p-2.5 rounded-xl bg-white/5 text-slate-200 hover:bg-white/10 text-center"
               >
-                Track Status
+                {t('navForOperators')}
               </Link>
               <Link
                 to="/emergency"
                 onClick={() => setMobileMenuOpen(false)}
-                className="p-2.5 rounded-xl bg-rose-500/15 text-rose-300 hover:bg-rose-500/25"
+                className="p-2.5 rounded-xl bg-rose-500/15 text-rose-300 hover:bg-rose-500/25 col-span-2 text-center"
               >
-                Emergency 112
-              </Link>
-              <Link
-                to="/problem"
-                onClick={() => setMobileMenuOpen(false)}
-                className="p-2.5 rounded-xl bg-white/5 text-slate-300 col-span-2 text-center"
-              >
-                Problem Formulation & Pitch Deck
+                {t('navResources')}
               </Link>
             </div>
 
@@ -343,7 +352,7 @@ function App() {
                 <Route path="/track" element={<TrackStatus />} />
                 <Route path="/emergency" element={<EmergencyContacts />} />
                 <Route path="/dashboard" element={<ProtectedRoute><CitizenDashboard /></ProtectedRoute>} />
-                <Route path="/complaint" element={<ComplaintInteraction />} />
+                <Route path="/complaint" element={<ProtectedRoute><ComplaintInteraction /></ProtectedRoute>} />
 
                 {/* Operator Portal Routes with Persistent Layout */}
                 <Route

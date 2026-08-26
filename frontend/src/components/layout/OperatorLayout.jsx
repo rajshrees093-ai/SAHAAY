@@ -47,14 +47,14 @@ export const OperatorLayout = () => {
           <Outlet />
         </main>
 
-        {/* Official Footer Notice */}
+        {/* Footer Notice */}
         <footer className="py-4 px-6 border-t border-white/5 bg-[#060a17]/80 text-[11px] text-slate-500 text-center backdrop-blur-md flex flex-col sm:flex-row items-center justify-between gap-2">
           <div className="flex items-center gap-1.5 justify-center">
             <ShieldCheck className="w-3.5 h-3.5 text-indigo-400" />
-            <span>CONFIDENTIAL GOVERNMENT INTRANET · NHAA 14566 · 256-BIT ENCRYPTION</span>
+            <span>CONFIDENTIAL TRIAGE WORKSTATION · DESIGNED FOR INTEGRATION WITH NHAA 14566 · SIH 2026 PROTOTYPE</span>
           </div>
           <div>
-            AI Triage Engine v2.6.4 · Advisory Decision-Support System
+            SAHAAY Decision-Support Engine · Advisory Evaluation System
           </div>
         </footer>
       </div>

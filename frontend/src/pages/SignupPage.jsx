@@ -12,10 +12,12 @@ import {
 } from 'lucide-react'
 import { AuthContext } from '../App'
 import DocumentModal from '../components/DocumentModal'
+import { useLanguage } from '../context/LanguageContext'
 
 export const SignupPage = () => {
   const navigate = useNavigate()
   const { setUser } = useContext(AuthContext)
+  const { t } = useLanguage()
   const [signupType, setSignupType] = useState('citizen')
   const [modalConfig, setModalConfig] = useState({ isOpen: false, type: '', title: '' })
   const [formData, setFormData] = useState({
@@ -39,7 +41,7 @@ export const SignupPage = () => {
       navigate('/operator')
     } else {
       setUser({ name: formData.name || 'Citizen User', role: 'user', email: formData.email })
-      navigate('/dashboard')
+      navigate('/complaint')
     }
   }
 
@@ -92,12 +94,18 @@ export const SignupPage = () => {
             <div className="w-12 h-12 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 mx-auto mb-3 shadow-inner">
               <ShieldCheck className="w-6 h-6" />
             </div>
-            <h2 className="text-xl font-black text-white tracking-tight">
+            <h1 className="text-2xl font-black text-white tracking-tight">
+              {t('brandName')}
+            </h1>
+            <p className="text-xs font-semibold text-slate-200 mt-1">
+              {t('subtitleShort')}
+            </p>
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-300 border border-indigo-500/20 text-[11px] font-medium mt-2">
+              <span>NHAA 14566 Integrated Portal · SIH 2026 Prototype</span>
+            </div>
+            <h2 className="text-sm font-bold text-slate-400 mt-3">
               {signupType === 'official' ? 'Official Account Registration' : 'New Citizen Registration'}
             </h2>
-            <p className="text-xs text-slate-400 mt-1">
-              SAHAAY · NHAA 14566 · Department of Public Grievances
-            </p>
           </div>
 
           <div className="p-6 lg:p-8 space-y-4">

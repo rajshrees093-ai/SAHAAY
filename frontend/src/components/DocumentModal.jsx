@@ -1,7 +1,9 @@
 import React from 'react'
 import { X, FileText, ShieldAlert, Check } from 'lucide-react'
+import { useLanguage } from '../context/LanguageContext'
 
 export const DocumentModal = ({ isOpen, onClose, title, type }) => {
+  const { t } = useLanguage()
   if (!isOpen) return null
 
   return (
@@ -32,7 +34,7 @@ export const DocumentModal = ({ isOpen, onClose, title, type }) => {
               <p>
                 <strong className="text-white">1. Purpose & Scope:</strong>
                 <br />
-                The SAHAAY platform serves as an AI-assisted intake and early-warning decision-support portal for the National Helpline Assessment Authority (NHAA 14566).
+                The {t('brandName')} platform serves as an AI-assisted intake and early-warning decision-support portal for the National Helpline Assessment Authority (NHAA 14566).
               </p>
 
               <p>

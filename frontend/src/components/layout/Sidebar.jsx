@@ -20,9 +20,12 @@ import {
   ExternalLink
 } from 'lucide-react'
 
+import { useLanguage } from '../../context/LanguageContext'
+
 export const Sidebar = ({ isMobileOpen, setIsMobileOpen, user, onLogout }) => {
   const location = useLocation()
   const navigate = useNavigate()
+  const { t } = useLanguage()
 
   const navItems = [
     { label: 'Dashboard', path: '/operator', icon: LayoutDashboard },
@@ -68,17 +71,12 @@ export const Sidebar = ({ isMobileOpen, setIsMobileOpen, user, onLogout }) => {
               <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-purple-500 flex items-center justify-center text-white shadow-[0_0_15px_rgba(99,102,241,0.4)]">
                 <ShieldAlert className="w-5 h-5" />
               </div>
-              <div className="flex flex-col">
-                <div className="flex items-center gap-1.5">
-                  <span className="text-lg font-black tracking-tight text-white">SAHAAY</span>
-                  <span className="text-[10px] font-extrabold px-1.5 py-0.5 rounded bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
-                    14566
+                <div className="flex flex-col">
+                  <span className="text-xl font-black tracking-tight text-white">{t('brandName')}</span>
+                  <span className="text-[10px] text-indigo-300 font-semibold tracking-tight">
+                    {t('operatorSubtitle')}
                   </span>
                 </div>
-                <span className="text-[10px] text-slate-400 font-medium tracking-tight">
-                  Officer Triage Network
-                </span>
-              </div>
             </Link>
           </div>
 

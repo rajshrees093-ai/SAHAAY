@@ -32,6 +32,7 @@ import DonutChart from '../../components/ui/DonutChart'
 import RiskGauge from '../../components/ui/RiskGauge'
 import RiskTrendLine from '../../components/ui/RiskTrendLine'
 import OverrideModal from '../../components/ui/OverrideModal'
+import { useLanguage } from '../../context/LanguageContext'
 
 export const initialCases = [
   {
@@ -145,6 +146,7 @@ export const initialCases = [
 export const DashboardOverview = () => {
   const navigate = useNavigate()
   const [searchParams] = useSearchParams()
+  const { t } = useLanguage()
 
   const getCombinedCases = () => {
     try {
@@ -268,8 +270,8 @@ export const DashboardOverview = () => {
             <h1 className="text-2xl lg:text-3xl font-black text-white tracking-tight">
               Officer Triage Center
             </h1>
-            <span className="text-xs font-mono font-bold px-2.5 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
-              SAHAAY 14566
+            <span className="text-xs font-bold px-2.5 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
+              {t('operatorSubtitle')}
             </span>
           </div>
           <p className="text-xs text-slate-400 mt-1">
