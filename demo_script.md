@@ -66,18 +66,6 @@
    - Click **"Override Score"** $\rightarrow$ open the dark glass modal to adjust risk ratings with mandatory audit justification.
    - Demonstrate **"Schedule Follow-up"** and **"Emergency Dispatch"** (routes to ERSS 112).
 
----
-
-## 👥 Presentation Role Division (6 Team Members)
-
-| Speaker | Timing | Focus Area |
-|---|---|---|
-| **Member 1** | 45 sec | Problem Statement & Citizen Psychological Reality |
-| **Member 2** | 45 sec | SAHAAY Solution Architecture & Ethical Boundaries |
-| **Member 3** | 60 sec | Multimodal AI Pipeline (Text NLP + Voice Acoustics + SVI Scoring) |
-| **Member 4** | 45 sec | Security Architecture (256-Bit AES, Pseudonymization, Privacy) |
-| **Member 5** | 90 sec | Live Dual-Portal Demo (Citizen Intake $\rightarrow$ Reactive Officer Console) |
-| **Member 6** | 45 sec | Impact, Scalability for 14566, and Roadmap |
 
 ---
 
