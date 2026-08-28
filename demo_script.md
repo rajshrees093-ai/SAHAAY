@@ -1,87 +1,52 @@
-# SAHAAY (NHAA 14566) — Live Demo Script & Evaluator Q&A
+# SAHAAY — Demonstration Guide & Q&A
 
 ---
 
-## ⏱️ 60–90 Second Elevator Pitch
+## Summary
 
-> *"Good morning respected evaluators and jury members.*
->
-> *When citizens reach out in acute distress, fear and trauma impair linear communication. Their statements may be fragmented, hesitant, or written in regional dialects, making it difficult for overloaded helpline operators to immediately identify escalating danger.*
->
-> *Our solution is **SAHAAY**, an AI-assisted grievance intake and early-warning vulnerability assessment portal built for the **National Helpline Assessment Authority (NHAA 14566)**.*
->
-> *SAHAAY acts as an intelligent decision-support layer between the citizen and the case officer:*
-> 1. *Citizens speak or type freely in their mother tongue—supporting 6 major Indian languages.*
-> 2. *Our pipeline extracts both linguistic cues and acoustic voice signals (panic tremors, pitch variance, speech cadence).*
-> 3. *It computes an explainable **Stress Vulnerability Index (SVI 0–100)** and charts longitudinal escalation trends.*
->
-> *Crucially, **AI never makes unilateral punitive decisions**. Trained case officers retain full authority, using our streamlined 2-column triage workstation to verify signals, override scores with audit logs, schedule follow-ups, or trigger emergency dispatches.*
->
-> *SAHAAY: A safer, calmer way to be heard."*
+SAHAAY is an AI-assisted grievance intake and decision-support portal for NHAA 14566:
+1. Citizens submit complaints via voice or text in 6 Indian languages.
+2. The pipeline extracts linguistic distress markers and acoustic voice signals.
+3. It computes an explainable Stress Vulnerability Index (SVI 0–100) and longitudinal trends.
+4. Case officers verify signals, override scores with audit logs, and trigger redressal or emergency dispatch.
 
 ---
 
-## 🎬 Live Walkthrough Flow
+## Walkthrough Steps
 
-### Step 1: Multi-Language & Citizen Experience (`http://localhost:5174/`)
-1. **Language Switching**:
-   - Show the language dropdown in the top navigation bar.
-   - Switch from **English** $\rightarrow$ **हिन्दी (Hindi)** $\rightarrow$ **मराठी (Marathi)**.
-   - Highlight that the UI and sample prompts update **instantly** without reloading the page.
+### 1. Citizen Intake (`/complaint`)
+1. **Language Selection**: Switch languages (English, Hindi, Marathi, etc.) to show dynamic UI adaptation.
+2. **Multimodal Input**: Use speech input or sample distress text.
+3. **Encryption & Docket**: Submit complaint, showing AES-256 encryption and generated docket tracking number.
+4. **Status Tracking**: Navigate to `/track` to view milestone progression.
 
-2. **Multimodal Grievance Intake (`/complaint`)**:
-   - Click **"Speak or Submit Now"**.
-   - Show the glowing microphone with browser audio permission handling.
-   - Click **"Paste Sample Hindi Distress Text"** to demonstrate rapid intake.
-   - Check the **Consent Checkbox** under NHAA 14566 privacy protocols.
-   - Click **"Submit for Officer Triage"**.
-
-3. **256-Bit AES Encryption & Pseudonymous Docket**:
-   - Watch the multi-step intake animation: *Encrypting AES-256 $\rightarrow$ NLP extraction $\rightarrow$ SVI scoring*.
-   - Show the generated copyable Docket Number (e.g. `NHAA/2026/05/2854`).
-   - Click **"Track Grievance Status"** to view the 5-stage milestone stepper (`/track`).
-
----
-
-### Step 2: Reactive Officer Triage Console (`http://localhost:5174/operator`)
-1. **Strict Role Separation**:
-   - Show that opening `/operator` requires official authentication (`officer@nhaa.gov.in`).
-   - Click **"Login with Demo SSO"** to enter the Officer Console.
-
-2. **Reactive Priority Queue (Left Column)**:
-   - Point to the top of the queue: the complaint filed by the citizen in Step 1 appears dynamically at the top as **`Pending Verification`**.
-   - Filter by risk levels (**CRITICAL**, **HIGH**, **MODERATE**, **LOW**) and view the risk distribution donut chart.
-
-3. **Active Case Dossier (Right Column)**:
-   - **SVI Stress Score**: Point to the glowing semi-circular gauge (**91/100 · 88% Confidence**).
-   - **Longitudinal Trend**: Inspect the 18-day escalation chart showing rising distress signals over time.
-   - **Multimodal Evidence**: Review the 3 categorized evidence cards:
-     - 📝 *Transcribed Statement*
-     - 🎙️ *Acoustic Speech Signals (+40dB variance, panic tremors)*
-     - ⚠️ *Environmental Risk Factors (isolated zone, unsafe return)*
-
-4. **Human-in-the-Loop Interventions**:
-   - Check the interactive verification pills (*Confirmed ✓*).
-   - Click **"Verify & Approve Assessment"** $\rightarrow$ shows instant toast notification that redressal has been initiated.
-   - Click **"Override Score"** $\rightarrow$ open the dark glass modal to adjust risk ratings with mandatory audit justification.
-   - Demonstrate **"Schedule Follow-up"** and **"Emergency Dispatch"** (routes to ERSS 112).
-
+### 2. Officer Triage Console (`/operator`)
+1. **Authentication**: Sign in using `officer@nhaa.gov.in`.
+2. **Priority Queue**: View real-time incoming cases ranked by SVI priority.
+3. **Case Dossier**:
+   - Inspect SVI gauge (0–100) and confidence score.
+   - Review 18-day longitudinal stress trend.
+   - Examine transcript, acoustic features, and situational risks.
+4. **Officer Actions**:
+   - Verify signals.
+   - Approve assessment or override score with audit justification.
+   - Schedule follow-up or trigger Emergency Dispatch (ERSS 112).
 
 ---
 
-## ❓ Frequently Asked Questions (Jury Q&A)
+## Evaluator Q&A
 
 ### Q1: How does SAHAAY differ from generic sentiment analysis?
-> **Answer:** Standard sentiment analysis only classifies words as positive, neutral, or negative. SAHAAY combines **linguistic distress semantics**, **voice acoustic markers** (pitch variance, jitter, panic tremors), **situational risk factors**, and **18-day longitudinal trends** to generate an operational Stress Vulnerability Index (SVI).
+Combines linguistic semantics, acoustic voice cues (pitch variance, jitter), situational risks, and 18-day longitudinal trend analysis rather than simple positive/negative text tagging.
 
-### Q2: Does AI replace case officers or make legal determinations?
-> **Answer:** Absolutely not. SAHAAY is built on a strict **Human-in-the-Loop** model. AI scores are strictly advisory. Officers must individually verify signals, and any score override is logged in an immutable audit trail.
+### Q2: Does AI replace human officers?
+No. SVI outputs are advisory. Officers make final decisions, and all score modifications are recorded in an audit trail.
 
-### Q3: How is citizen privacy and confidentiality protected?
-> **Answer:** All statements and audio features are encrypted with **256-bit AES via Fernet encryption**. Complainants interact through **pseudonymous docket numbers**, ensuring personal identities remain isolated in a protected credential vault.
+### Q3: How is data privacy handled?
+Transcripts and audio features use 256-bit AES encryption. Citizens interact via pseudonymous docket numbers.
 
-### Q4: How does the system handle regional Indian languages?
-> **Answer:** SAHAAY features a native **6-language translation architecture** (English, Hindi, Marathi, Tamil, Bengali, Telugu) coupled with locale-aware Web Speech recognition (`hi-IN`, `mr-IN`, `ta-IN`, etc.) to transcribe regional dialects accurately.
+### Q4: How are regional languages supported?
+Multi-language translation architecture coupled with locale-aware Web Speech recognition (`hi-IN`, `mr-IN`, `ta-IN`, etc.).
 
-### Q5: What happens if audio quality is poor or background noise is high?
-> **Answer:** The pipeline calculates confidence scores for acoustic features. If audio quality falls below threshold, the system gracefully falls back to text NLP analysis without skewing the overall SVI score.
+### Q5: What happens if audio quality is poor?
+The system flags low acoustic confidence and falls back to text NLP without skewing the assessment.
