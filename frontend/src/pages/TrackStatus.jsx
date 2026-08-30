@@ -28,10 +28,10 @@ export const TrackStatus = () => {
       setResult({
         docket: cleanId,
         intakeDate: 'Today, 10:14 AM',
-        status: 'Under Review by Authorized Officer',
+        status: t('underReviewStatus'),
         currentStep: 3,
-        assignedDepartment: 'NHAA Public Grievance Redressal Division',
-        estimatedResolution: 'Within 24 Hours'
+        assignedDepartment: t('deptValue'),
+        estimatedResolution: t('estResolutionValue')
       })
     }
   }
@@ -49,11 +49,11 @@ export const TrackStatus = () => {
   }
 
   const steps = [
-    { title: 'Registered', desc: 'Complaint logged in secure database' },
-    { title: 'AI Assessment', desc: 'Linguistic & signal feature extraction complete' },
-    { title: 'Under Review', desc: 'Assigned to authorized officer for human evaluation' },
-    { title: 'Follow-up Scheduled', desc: 'Citizen contact and wellness verification' },
-    { title: 'Resolved', desc: 'Case redressal closed and documented' }
+    { title: t('stepReg'), desc: t('stepRegDesc') },
+    { title: t('stepAI'), desc: t('stepAIDesc') },
+    { title: t('stepReview'), desc: t('stepReviewDesc') },
+    { title: t('stepFollowup'), desc: t('stepFollowupDesc') },
+    { title: t('stepResolved'), desc: t('stepResolvedDesc') }
   ]
 
   return (
@@ -112,7 +112,7 @@ export const TrackStatus = () => {
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/10 pb-5">
             <div>
               <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">
-                Docket Tracking Record
+                {t('docketRecord')}
               </span>
               <h3 className="text-xl font-black text-white font-mono tracking-wide mt-0.5">
                 {result.docket}
@@ -121,14 +121,14 @@ export const TrackStatus = () => {
 
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-indigo-500/10 text-indigo-300 border border-indigo-500/30">
               <Clock className="w-3.5 h-3.5 text-indigo-400" />
-              {result.status}
+              {t('underReviewStatus')}
             </span>
           </div>
 
           {/* Stepper Progression */}
           <div className="space-y-4">
             <h4 className="text-xs font-bold text-slate-300 uppercase tracking-wider">
-              Investigation & Review Milestones
+              {t('timelineTitle')}
             </h4>
             <div className="space-y-3">
               {steps.map((s, idx) => {
@@ -160,11 +160,6 @@ export const TrackStatus = () => {
                     <div>
                       <div className="flex items-center gap-2">
                         <span className="text-xs font-bold text-white">{s.title}</span>
-                        {isCurrent && (
-                          <span className="text-[10px] font-bold px-2 py-0.2 rounded bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
-                            Current Stage
-                          </span>
-                        )}
                       </div>
                       <p className="text-[11px] text-slate-300 mt-0.5">{s.desc}</p>
                     </div>
@@ -178,7 +173,7 @@ export const TrackStatus = () => {
           <div className="p-4 rounded-xl bg-slate-950/60 border border-white/10 text-xs text-slate-400 flex items-center gap-3">
             <ShieldCheck className="w-5 h-5 text-indigo-400 flex-shrink-0" />
             <p className="leading-relaxed">
-              Your grievance details are strictly pseudonymized and encrypted. Case notes and internal classifications remain protected under NHAA privacy rules.
+              {t('privacyStatement')}
             </p>
           </div>
         </div>

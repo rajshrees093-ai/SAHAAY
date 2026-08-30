@@ -77,9 +77,9 @@ export const CitizenDashboard = () => {
               <div className="w-12 h-12 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 mb-4 group-hover:scale-110 transition-transform">
                 <Mic className="w-6 h-6" />
               </div>
-              <h3 className="text-lg font-bold text-white mb-1">{t('card1Title')}</h3>
+              <h3 className="text-lg font-bold text-white mb-1">{t('dashCard1Title')}</h3>
               <p className="text-xs text-slate-300 leading-relaxed">
-                {t('card1Desc')}
+                {t('dashCard1Desc')}
               </p>
             </div>
 
@@ -98,9 +98,9 @@ export const CitizenDashboard = () => {
               <div className="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 mb-4 group-hover:scale-110 transition-transform">
                 <Search className="w-6 h-6" />
               </div>
-              <h3 className="text-lg font-bold text-white mb-1">{t('card2Title')}</h3>
+              <h3 className="text-lg font-bold text-white mb-1">{t('dashCard2Title')}</h3>
               <p className="text-xs text-slate-300 leading-relaxed">
-                {t('card2Desc')}
+                {t('dashCard2Desc')}
               </p>
             </div>
 
@@ -112,21 +112,21 @@ export const CitizenDashboard = () => {
 
           {/* Card 3: My Legal Rights */}
           <div
-            onClick={() => openModal('guidelines', 'Citizen Legal Protections & Guidelines')}
+            onClick={() => openModal('guidelines', t('legalModalTitle'))}
             className="bg-slate-900/60 backdrop-blur-xl border border-white/10 rounded-2xl p-6 shadow-xl hover:border-emerald-500/40 hover:bg-slate-800/60 transition-all cursor-pointer group flex flex-col justify-between"
           >
             <div>
               <div className="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 mb-4 group-hover:scale-110 transition-transform">
                 <BookOpen className="w-6 h-6" />
               </div>
-              <h3 className="text-lg font-bold text-white mb-1">{t('card3Title')}</h3>
+              <h3 className="text-lg font-bold text-white mb-1">{t('dashCard3Title')}</h3>
               <p className="text-xs text-slate-300 leading-relaxed">
-                {t('card3Desc')}
+                {t('dashCard3Desc')}
               </p>
             </div>
 
             <div className="pt-4 flex items-center gap-1 text-xs font-bold text-emerald-400 group-hover:text-emerald-300">
-              <span>{t('card3Title')}</span>
+              <span>{t('dashCard3Title')}</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </div>
           </div>
@@ -140,9 +140,9 @@ export const CitizenDashboard = () => {
               <div className="w-12 h-12 rounded-xl bg-rose-500/10 border border-rose-500/20 flex items-center justify-center text-rose-400 mb-4 group-hover:scale-110 transition-transform">
                 <Phone className="w-6 h-6" />
               </div>
-              <h3 className="text-lg font-bold text-white mb-1">{t('card4Title')}</h3>
+              <h3 className="text-lg font-bold text-white mb-1">{t('dashCard4Title')}</h3>
               <p className="text-xs text-slate-300 leading-relaxed">
-                {t('card4Desc')}
+                {t('dashCard4Desc')}
               </p>
             </div>
 

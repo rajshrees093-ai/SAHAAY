@@ -161,9 +161,9 @@ export const LandingPage = () => {
                   <BrainCircuit className="w-7 h-7" />
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold text-white">AI-Assisted Early Triage</h4>
+                  <h4 className="text-sm font-bold text-white">{t('aiTriageTitle')}</h4>
                   <p className="text-xs text-slate-400 mt-0.5">
-                    Analyzing linguistic markers, emotional distress cues, and speech dynamics.
+                    {t('aiTriageDesc')}
                   </p>
                 </div>
               </div>
@@ -175,9 +175,9 @@ export const LandingPage = () => {
                   <ShieldCheck className="w-7 h-7" />
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold text-white">Human-in-the-Loop Review</h4>
+                  <h4 className="text-sm font-bold text-white">{t('humanReviewTitle')}</h4>
                   <p className="text-xs text-slate-400 mt-0.5">
-                    Every case is reviewed and verified by trained authorized personnel.
+                    {t('humanReviewDesc')}
                   </p>
                 </div>
               </div>
@@ -211,7 +211,7 @@ export const LandingPage = () => {
                 </p>
               </div>
               <div className="pt-2 text-[11px] font-semibold text-indigo-400">
-                Voice & Text Channels
+                {t('card1Tag')}
               </div>
             </div>
 
@@ -227,7 +227,7 @@ export const LandingPage = () => {
                 </p>
               </div>
               <div className="pt-2 text-[11px] font-semibold text-rose-400">
-                NLP & Acoustic Markers
+                {t('card2Tag')}
               </div>
             </div>
 
@@ -243,7 +243,7 @@ export const LandingPage = () => {
                 </p>
               </div>
               <div className="pt-2 text-[11px] font-semibold text-purple-400">
-                Longitudinal Assessment
+                {t('card3Tag')}
               </div>
             </div>
 
@@ -259,7 +259,7 @@ export const LandingPage = () => {
                 </p>
               </div>
               <div className="pt-2 text-[11px] font-semibold text-emerald-400">
-                Decision-Support Layer
+                {t('card4Tag')}
               </div>
             </div>
           </div>
@@ -272,7 +272,7 @@ export const LandingPage = () => {
           <div className="text-center space-y-2 max-w-2xl mx-auto">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-300 border border-indigo-500/20 text-xs font-bold mb-2">
               <Compass className="w-3.5 h-3.5" />
-              <span>Structured Workflow</span>
+              <span>{t('workflowTag')}</span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
               {t('howSahaayWorks')}
@@ -330,7 +330,7 @@ export const LandingPage = () => {
               onClick={(e) => openModal('terms', 'Privacy Policy & Data Security', e)}
               className="text-xs font-bold text-indigo-400 hover:text-indigo-300 whitespace-nowrap"
             >
-              Learn more &rarr;
+              {t('learnMore')} &rarr;
             </a>
           </div>
 
@@ -375,7 +375,7 @@ export const LandingPage = () => {
               onClick={(e) => openModal('terms', 'Terms of Service', e)}
               className="hover:text-white transition"
             >
-              Terms of Service
+              {t('termsOfService')}
             </a>
             <span>•</span>
             <a
@@ -383,7 +383,7 @@ export const LandingPage = () => {
               onClick={(e) => openModal('terms', 'Privacy Policy', e)}
               className="hover:text-white transition"
             >
-              Privacy Policy
+              {t('privacyPolicy')}
             </a>
             <span>•</span>
             <a
@@ -391,7 +391,7 @@ export const LandingPage = () => {
               onClick={(e) => openModal('guidelines', 'Citizen Guidelines', e)}
               className="hover:text-white transition"
             >
-              Citizen Guidelines
+              {t('citizenGuidelines')}
             </a>
           </div>
         </footer>

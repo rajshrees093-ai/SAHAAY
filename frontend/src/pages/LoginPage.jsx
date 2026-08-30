@@ -92,7 +92,7 @@ export const LoginPage = () => {
             }`}
           >
             <User className="w-4 h-4" />
-            <span>CITIZEN ACCESS</span>
+            <span>{t('citizenAccess')}</span>
           </button>
           <button
             type="button"
@@ -104,7 +104,7 @@ export const LoginPage = () => {
             }`}
           >
             <Briefcase className="w-4 h-4" />
-            <span>OFFICIAL ACCESS</span>
+            <span>{t('officialAccess')}</span>
           </button>
         </div>
 
@@ -120,10 +120,10 @@ export const LoginPage = () => {
             {t('subtitleShort')}
           </p>
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-300 border border-indigo-500/20 text-[11px] font-medium mt-2">
-            <span>NHAA 14566 Integrated Portal · SIH 2026 Prototype</span>
+            <span>{t('topStripText')}</span>
           </div>
           <h2 className="text-sm font-bold text-slate-400 mt-3">
-            {loginType === 'official' ? 'Official Case Officer Portal' : 'Citizen Grievance Login'}
+            {loginType === 'official' ? t('officialPortalTitle') : t('citizenLoginTitle')}
           </h2>
         </div>
 
@@ -138,7 +138,7 @@ export const LoginPage = () => {
           <form onSubmit={handleLogin} className="space-y-4">
             <div>
               <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5">
-                {loginType === 'official' ? 'Official Government ID / Email' : 'Email Address'}
+                {loginType === 'official' ? t('officialIdLabel') : t('emailLabel')}
               </label>
               <div className="relative">
                 <Mail className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
@@ -155,7 +155,7 @@ export const LoginPage = () => {
 
             <div>
               <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5">
-                Password
+                {t('passwordLabel')}
               </label>
               <div className="relative">
                 <Lock className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
@@ -177,10 +177,10 @@ export const LoginPage = () => {
                   defaultChecked
                   className="h-3.5 w-3.5 rounded border-slate-700 bg-slate-900 text-indigo-600"
                 />
-                <span>Remember session</span>
+                <span>{t('rememberSession')}</span>
               </label>
               <a href="#" className="text-indigo-400 hover:text-indigo-300 font-semibold">
-                Forgot password?
+                {t('forgotPassword')}
               </a>
             </div>
 
@@ -188,7 +188,7 @@ export const LoginPage = () => {
               type="submit"
               className="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-extrabold py-3 px-4 rounded-xl shadow-[0_0_15px_rgba(99,102,241,0.4)] transition-all flex items-center justify-center gap-2 text-xs uppercase tracking-wider"
             >
-              <span>{loginType === 'official' ? 'Authenticate Officer Session' : 'Sign In as Citizen'}</span>
+              <span>{loginType === 'official' ? t('authOfficer') : t('signInCitizen')}</span>
               <ArrowRight className="w-4 h-4" />
             </button>
           </form>
@@ -201,14 +201,14 @@ export const LoginPage = () => {
               className="w-full bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 text-xs font-bold py-2.5 rounded-xl transition-all flex items-center justify-center gap-2"
             >
               <Key className="w-3.5 h-3.5 text-indigo-400" />
-              <span>Login with Demo SSO (1-Click)</span>
+              <span>{t('demoSSO')}</span>
             </button>
           </div>
 
           <div className="pt-4 border-t border-white/10 text-center text-xs text-slate-400">
-            Don't have an account?{' '}
+            {t('dontHaveAccount')}{' '}
             <Link to="/signup" className="font-bold text-indigo-400 hover:text-indigo-300">
-              Register now
+              {t('registerNow')}
             </Link>
           </div>
         </div>

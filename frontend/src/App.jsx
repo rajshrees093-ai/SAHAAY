@@ -284,14 +284,14 @@ const PublicNavbar = ({ user, handleLogout }) => {
                     onClick={() => setMobileMenuOpen(false)}
                     className="flex-1 text-center py-2 rounded-xl bg-white/5 text-slate-200"
                   >
-                    Citizen Login
+                    {t('citizenLogin')}
                   </Link>
                   <Link
                     to="/login?tab=official"
                     onClick={() => setMobileMenuOpen(false)}
                     className="flex-1 text-center py-2 rounded-xl bg-indigo-600 text-white"
                   >
-                    Officer Login
+                    {t('officerLogin')}
                   </Link>
                 </div>
               ) : (
@@ -311,7 +311,7 @@ const PublicNavbar = ({ user, handleLogout }) => {
                     }}
                     className="text-rose-400 font-bold text-xs"
                   >
-                    Sign Out
+                    {t('signOut')}
                   </button>
                 </div>
               )}
@@ -411,6 +411,9 @@ function App() {
                     }
                   />
                 </Route>
+
+                {/* Catch-all fallback */}
+                <Route path="*" element={<Navigate to="/" replace />} />
               </Routes>
             </main>
           </div>

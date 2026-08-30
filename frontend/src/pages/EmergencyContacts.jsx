@@ -9,56 +9,59 @@ import {
   LifeBuoy
 } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { useLanguage } from '../context/LanguageContext'
 
 export const EmergencyContacts = () => {
+  const { t } = useLanguage()
+
   const helplines = [
     {
-      title: 'National Emergency Response (ERSS)',
+      title: t('emergency112Title'),
       number: '112',
-      category: 'Police, Ambulance & Fire Dispatch',
-      desc: '24/7 unified immediate response for physical safety threats, medical emergencies, and active crimes.',
+      category: t('emergency112Cat'),
+      desc: t('emergency112Desc'),
       color: 'bg-rose-500/10 text-rose-400 border-rose-500/20',
-      badge: 'Immediate Dispatch'
+      badge: t('emergency112Badge')
     },
     {
-      title: 'Women in Distress Helpline',
+      title: t('emergency1091Title'),
       number: '1091',
-      category: 'Women & Child Safety',
-      desc: 'Dedicated round-the-clock emergency support for harassment, domestic violence, and acute crisis.',
+      category: t('emergency1091Cat'),
+      desc: t('emergency1091Desc'),
       color: 'bg-orange-500/10 text-orange-400 border-orange-500/20',
-      badge: '24/7 Dedicated'
+      badge: t('emergency1091Badge')
     },
     {
-      title: 'NHAA Grievance Redressal Line',
+      title: t('emergency14566Title'),
       number: '14566',
-      category: 'Public Grievances & Case Support',
-      desc: 'National Helpline Assessment Authority toll-free assistance for procedural triage and welfare follow-ups.',
+      category: t('emergency14566Cat'),
+      desc: t('emergency14566Desc'),
       color: 'bg-indigo-500/10 text-indigo-400 border-indigo-500/20',
-      badge: 'Official Toll-Free'
+      badge: t('emergency14566Badge')
     },
     {
-      title: 'National Cyber Crime Reporting',
+      title: t('emergency1930Title'),
       number: '1930',
-      category: 'Online Harassment & Fraud',
-      desc: 'Immediate reporting of online stalking, non-consensual imagery, and digital financial extortion.',
+      category: t('emergency1930Cat'),
+      desc: t('emergency1930Desc'),
       color: 'bg-cyan-500/10 text-cyan-400 border-cyan-500/20',
-      badge: 'Cyber Redressal'
+      badge: t('emergency1930Badge')
     },
     {
-      title: 'Tele-MANAS Mental Health Support',
+      title: t('emergency14416Title'),
       number: '14416',
-      category: 'Psychological Crisis Assistance',
-      desc: 'Confidential psychological first-aid and crisis counseling provided by certified counselors in 20+ regional languages.',
+      category: t('emergency14416Cat'),
+      desc: t('emergency14416Desc'),
       color: 'bg-purple-500/10 text-purple-400 border-purple-500/20',
-      badge: 'Mental Health'
+      badge: t('emergency14416Badge')
     },
     {
-      title: 'NALSA Free Legal Aid Support',
+      title: t('emergency15100Title'),
       number: '15100',
-      category: 'Legal Representation & Protection',
-      desc: 'Free legal counseling, protection order filing assistance, and court advocate assignment for eligible victims.',
+      category: t('emergency15100Cat'),
+      desc: t('emergency15100Desc'),
       color: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20',
-      badge: 'Free Legal Aid'
+      badge: t('emergency15100Badge')
     }
   ]
 
@@ -70,10 +73,10 @@ export const EmergencyContacts = () => {
           <ShieldAlert className="w-7 h-7" />
         </div>
         <h1 className="text-2xl lg:text-3xl font-black text-white tracking-tight">
-          Emergency Helplines & Crisis Directory
+          {t('emergencyTitle')}
         </h1>
         <p className="text-xs text-slate-300 max-w-lg mx-auto leading-relaxed">
-          If you or someone you know is in immediate danger, please reach out to the verified national helplines below. All lines are toll-free.
+          {t('emergencySubtitle')}
         </p>
       </div>
 
@@ -105,7 +108,7 @@ export const EmergencyContacts = () => {
                 className="bg-indigo-600 hover:bg-indigo-500 text-white font-extrabold text-xs px-4 py-2 rounded-xl shadow-md transition-colors flex items-center gap-1.5"
               >
                 <Phone className="w-3.5 h-3.5" />
-                <span>Call Helpline</span>
+                <span>{t('callNow')}</span>
               </a>
             </div>
           </div>

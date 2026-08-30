@@ -28,17 +28,17 @@ export const Sidebar = ({ isMobileOpen, setIsMobileOpen, user, onLogout }) => {
   const { t } = useLanguage()
 
   const navItems = [
-    { label: 'Dashboard', path: '/operator', icon: LayoutDashboard },
-    { label: 'Cases', path: '/operator/cases', icon: FolderKanban, badge: '1,248' },
-    { label: 'Alerts', path: '/operator/alerts', icon: BellRing, badge: '18', badgeColor: 'bg-rose-500 text-white shadow-[0_0_10px_#f43f5e]' },
-    { label: 'Follow-ups', path: '/operator/followups', icon: History, badge: '7' },
-    { label: 'Analytics', path: '/operator/analytics', icon: ChartPie },
-    { label: 'Reports', path: '/operator/reports', icon: FileText },
-    { label: 'Support Resources', path: '/operator/resources', icon: LifeBuoy },
-    { label: 'Messages', path: '/operator/messages', icon: MessageSquare },
-    { label: 'Calendar', path: '/operator/calendar', icon: Calendar },
-    { label: 'Users', path: '/operator/users', icon: Users },
-    { label: 'Settings', path: '/operator/settings', icon: Settings }
+    { label: t('navDashboard'), path: '/operator', icon: LayoutDashboard },
+    { label: t('navCases'), path: '/operator/cases', icon: FolderKanban, badge: '1,248' },
+    { label: t('navAlerts'), path: '/operator/alerts', icon: BellRing, badge: '18', badgeColor: 'bg-rose-500 text-white shadow-[0_0_10px_#f43f5e]' },
+    { label: t('navFollowups'), path: '/operator/followups', icon: History, badge: '7' },
+    { label: t('navAnalytics'), path: '/operator/analytics', icon: ChartPie },
+    { label: t('navReports'), path: '/operator/reports', icon: FileText },
+    { label: t('navSupportResources'), path: '/operator/resources', icon: LifeBuoy },
+    { label: t('navMessages'), path: '/operator/messages', icon: MessageSquare },
+    { label: t('navCalendar'), path: '/operator/calendar', icon: Calendar },
+    { label: t('navUsers'), path: '/operator/users', icon: Users },
+    { label: t('navSettings'), path: '/operator/settings', icon: Settings }
   ]
 
   const isActive = (path) => {
@@ -88,10 +88,10 @@ export const Sidebar = ({ isMobileOpen, setIsMobileOpen, user, onLogout }) => {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
                 </span>
-                <span className="text-slate-300 font-bold text-[11px]">Triage Engine Active</span>
+                <span className="text-slate-300 font-bold text-[11px]">{t('triageEngineActive')}</span>
               </div>
               <span className="text-[10px] text-indigo-400 font-mono font-bold bg-indigo-500/10 px-2 py-0.5 rounded-full border border-indigo-500/20">
-                v2.6 Live
+                {t('versionLive')}
               </span>
             </div>
           </div>
@@ -137,7 +137,7 @@ export const Sidebar = ({ isMobileOpen, setIsMobileOpen, user, onLogout }) => {
             to="/dashboard"
             className="flex items-center justify-center gap-2 w-full py-2 px-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 text-xs font-bold transition-all"
           >
-            <span>Switch to Citizen View</span>
+            <span>{t('citizenPortal')}</span>
             <ExternalLink className="w-3.5 h-3.5 text-indigo-400" />
           </Link>
 
@@ -157,7 +157,7 @@ export const Sidebar = ({ isMobileOpen, setIsMobileOpen, user, onLogout }) => {
             <button
               onClick={onLogout}
               className="p-1.5 text-slate-400 hover:text-rose-400 hover:bg-rose-500/10 rounded-lg transition-colors"
-              title="Logout session"
+              title={t('signOut')}
             >
               <LogOut className="w-4 h-4" />
             </button>

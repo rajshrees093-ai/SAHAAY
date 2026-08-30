@@ -12,6 +12,8 @@ app = Flask(__name__)
 CORS(app)
 
 @app.route("/", methods=["GET"])
+@app.route("/health", methods=["GET"])
+@app.route("/api/health", methods=["GET"])
 def root():
     return jsonify({
         "status": "online",

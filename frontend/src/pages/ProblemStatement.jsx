@@ -24,10 +24,10 @@ export const ProblemStatement = () => {
       <div className="bg-slate-900/60 backdrop-blur-xl border-b border-white/10 px-6 py-4 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2 text-indigo-400 font-bold text-xs hover:text-indigo-300">
           <ArrowLeft className="w-4 h-4" />
-          <span>Back to Home</span>
+          <span>{t('backHome')}</span>
         </Link>
         <div className="font-bold text-xs text-slate-400 uppercase tracking-widest">
-          {t('portalFullName')} Pitch Presentation
+          {t('pitchHeader')}
         </div>
         <div className="w-8"></div>
       </div>
@@ -37,13 +37,13 @@ export const ProblemStatement = () => {
         <div className="mb-10">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-300 border border-indigo-500/30 text-xs font-bold mb-3">
             <Activity className="w-3.5 h-3.5" />
-            <span>Problem Formulation & Solution Architecture</span>
+            <span>{t('problemArchTag')}</span>
           </div>
           <h1 className="text-3xl md:text-4xl font-black text-white mb-3 tracking-tight">
-            Bridging Emotional Distress & Operational Triage
+            {t('problemMainHeading')}
           </h1>
           <p className="text-sm md:text-base text-slate-300 leading-relaxed max-w-3xl">
-            How AI assists authorized case officers in detecting hidden, escalating distress early — without ever replacing human judgment.
+            {t('problemMainSub')}
           </p>
         </div>
 
@@ -55,22 +55,22 @@ export const ProblemStatement = () => {
               <div className="w-10 h-10 rounded-xl bg-rose-500/10 border border-rose-500/20 flex items-center justify-center text-rose-400 mb-4 shadow-inner">
                 <AlertTriangle className="w-5 h-5" />
               </div>
-              <h2 className="text-lg font-bold text-white mb-2">The Complainant's Reality</h2>
+              <h2 className="text-lg font-bold text-white mb-2">{t('complainantReality')}</h2>
               <p className="text-xs text-slate-300 mb-4 leading-relaxed">
-                In critical distress, victims experience emotional turbulence that impairs linear communication:
+                {t('complainantDesc')}
               </p>
               <ul className="space-y-2.5 text-xs text-slate-300">
                 <li className="flex items-start gap-2.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-rose-500 mt-1.5 flex-shrink-0"></span>
-                  <span><strong className="text-white">Acute Fear & Panic:</strong> Fragmented statements and hesitated speech.</span>
+                  <span><strong className="text-white">{t('acutePanic')}</strong> {t('acutePanicDesc')}</span>
                 </li>
                 <li className="flex items-start gap-2.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-rose-500 mt-1.5 flex-shrink-0"></span>
-                  <span><strong className="text-white">Gradual Escalation:</strong> Subtle communication pattern shifts over days.</span>
+                  <span><strong className="text-white">{t('gradualEsc')}</strong> {t('gradualEscDesc')}</span>
                 </li>
                 <li className="flex items-start gap-2.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-rose-500 mt-1.5 flex-shrink-0"></span>
-                  <span><strong className="text-white">Linguistic Variance:</strong> Regional dialects and emotional phrasing.</span>
+                  <span><strong className="text-white">{t('lingVariance')}</strong> {t('lingVarianceDesc')}</span>
                 </li>
               </ul>
             </div>
@@ -80,10 +80,24 @@ export const ProblemStatement = () => {
               <div className="w-10 h-10 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 mb-4 shadow-inner">
                 <Headphones className="w-5 h-5" />
               </div>
-              <h2 className="text-lg font-bold text-white mb-2">The Officer's Challenge</h2>
+              <h2 className="text-lg font-bold text-white mb-2">{t('operatorChallenge')}</h2>
               <p className="text-xs text-slate-300 leading-relaxed">
-                Case officers must evaluate subjective distress signals under high volume. Without automated decision-support, critical longitudinal trends can be missed until a crisis has already escalated.
+                {t('operatorDesc')}
               </p>
+              <ul className="space-y-2.5 text-xs text-slate-300 mt-4">
+                <li className="flex items-start gap-2.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 mt-1.5 flex-shrink-0"></span>
+                  <span><strong className="text-white">{t('volumeOverload')}</strong> {t('volumeOverloadDesc')}</span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 mt-1.5 flex-shrink-0"></span>
+                  <span><strong className="text-white">{t('burnoutFatigue')}</strong> {t('burnoutFatigueDesc')}</span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 mt-1.5 flex-shrink-0"></span>
+                  <span><strong className="text-white">{t('subtleOmission')}</strong> {t('subtleOmissionDesc')}</span>
+                </li>
+              </ul>
             </div>
           </div>
 
@@ -104,17 +118,31 @@ export const ProblemStatement = () => {
             <div className="bg-slate-900/60 backdrop-blur-xl rounded-2xl border border-white/10 p-6 space-y-3 text-xs shadow-xl">
               <h3 className="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-                The {t('brandName')} Solution Framework
+                {t('sahaaySolution')}
               </h3>
               <p className="text-slate-300 leading-relaxed">
-                A consent-based, human-in-the-loop early-warning system combining multilingual text NLP, optional voice acoustic extraction, and longitudinal trend detection into an explainable <strong className="text-white">Stress Vulnerability Index (SVI)</strong>.
+                {t('sahaaySolDesc')}
               </p>
+              <ul className="space-y-2.5 text-xs text-slate-300 pt-2">
+                <li className="flex items-start gap-2.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-1.5 flex-shrink-0"></span>
+                  <span><strong className="text-white">{t('multimodalFeature')}</strong> {t('multimodalFeatureDesc')}</span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-1.5 flex-shrink-0"></span>
+                  <span><strong className="text-white">{t('dynamicTrend')}</strong> {t('dynamicTrendDesc')}</span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-1.5 flex-shrink-0"></span>
+                  <span><strong className="text-white">{t('explainableXAI')}</strong> {t('explainableXAIDesc')}</span>
+                </li>
+              </ul>
               <div className="pt-2 flex justify-end">
                 <Link
                   to="/operator"
                   className="bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs px-4 py-2 rounded-xl shadow-[0_0_15px_rgba(99,102,241,0.4)] transition-all flex items-center gap-1.5"
                 >
-                  <span>Explore Live Officer Portal</span>
+                  <span>{t('officerConsole')}</span>
                   <ExternalLink className="w-3.5 h-3.5" />
                 </Link>
               </div>
